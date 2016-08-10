@@ -20,15 +20,22 @@
     }
 
 
-    // Makes an Ajax GET request to 'requestUrl'
-    ajaxUtils.sendGetRequest = function (requestUrl, responseHandler, isJsonResponse) {
-        var request = getRequestObject();
-        request.onreadystatechange = function () {
-            handleResponse(request, responseHandler, isJsonResponse);
-        };
-        request.open("GET", requestUrl, true);
-        request.send(null); // for POST only
-    };
+   
+// Makes an Ajax GET request to 'requestUrl'
+ajaxUtils.sendGetRequest = 
+  function(requestUrl, responseHandler, isJsonResponse) {
+    var request = getRequestObject();
+    request.onreadystatechange = 
+      function() { 
+        handleResponse(request, 
+                       responseHandler,
+                       isJsonResponse); 
+      };
+    request.open("GET", requestUrl, true);
+    request.send(null); // for POST only
+  };
+
+    
 
 
     // Only calls user provided 'responseHandler'
